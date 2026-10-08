@@ -1,22 +1,28 @@
 const plants = [
+  {
+    id: 'HP-ANT-01',
+    category: 'anthurium',
+    name: 'Anthurium vittarifolium 4 in 1',
+    desc_de: 'Eigenregie gezogene Sämlinge. Das Hauptbild zeigt die Mutterpflanze.',
+    desc_en: 'Self-grown seedlings. Main photo shows the mother plant.',
+    
+    // 📸 赏析图 / 母本展示图（点进来第一眼看到的图片）
+    cover_images: [
+      'images/vitta.jpg'
+    ],
+    
+    // 🪴 出售个体选项（点击后主图和价格自动更新）
+    variants: [
       {
-        id: 'HP-ANT-01',
-        category: 'anthurium',
-        name: 'Anthurium vittarifolium 4 in 1',
-        desc_de: 'Eigenregie gezogene Sämlinge (4 Pflanzen in einem Topf). Wunderschöne lange, riemenförmige Blätter.',
-        desc_en: 'Self-grown seedlings (4 plants in one pot). Gorgeous long, strap-shaped leaves.',
-        variants: [
-          {
-            id: 'specimen-a',
-            name_de: 'Exemplar A (4 Sämlinge im Topf)',
-            name_en: 'Specimen A (4 Seedlings in Pot)',
-            price: '10.00',
-            images: [
-              'images/vitta.jpg' // 如果图片后缀是 .png，请改为 'images/vitta.png'
-            ]
-          }
-        ]
-      },
+        id: 'Grower's Choice',
+        name_de: 'Grower's Choice',
+        name_en: 'Grower's Choice',
+        price: '10.00',
+        images: ['images/vitta-a.jpg']
+      }
+    ]
+  }
+];,
       {
         id: 'HP-ANT-02', // 序号改一下，比如 02
         category: 'anthurium',
