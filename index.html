@@ -280,29 +280,35 @@
       {
         id: 'HP-ANT-01',
         category: 'anthurium',
-        name: 'Antolakii RA 1 Clone',
-        desc_de: 'Extrem seltene Anthurium-Varietät mit dunklen, tief geäderten Blättern und hervorragender Genetik. Jedes Exemplar hat seine eigenen Fotos.',
-        desc_en: 'Extremely rare Anthurium variety with dark, deeply veined leaves and excellent genetics. Each specimen has its own photos.',
-        // 多个照片与价格对应的变体列表
+        name: 'Anthurium vittarifolium 4 in 1',
+        desc_de: 'Eigenregie gezogene Sämlinge (4 Pflanzen in einem Topf). Wunderschöne lange, riemenförmige Blätter.',
+        desc_en: 'Self-grown seedlings (4 plants in one pot). Gorgeous long, strap-shaped leaves.',
         variants: [
           {
             id: 'specimen-a',
-            name_de: 'Exemplar A (Großes Blatt)',
-            name_en: 'Specimen A (Large Leaf)',
-            price: '120.00',
+            name_de: 'Exemplar A (4 Sämlinge im Topf)',
+            name_en: 'Specimen A (4 Seedlings in Pot)',
+            price: '10.00',
             images: [
-              'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=800&q=80',
-              'https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=800&q=80'
+              'images/vitta.jpg' // 如果图片后缀是 .png，请改为 'images/vitta.png'
             ]
-          },
+          }
+        ]
+      },
+      {
+        id: 'HP-ANT-02', // 序号改一下，比如 02
+        category: 'anthurium',
+        name: 'Carlablackiae x Dressleri', // 新植物的名字
+        desc_de: 'Eigenregie gezogene Sämlinge', // 德语描述
+        desc_en: 'Self-grown seedlings', // 英语描述
+        variants: [
           {
-            id: 'specimen-b',
-            name_de: 'Exemplar B (Mittelgröße)',
-            name_en: 'Specimen B (Medium Size)',
-            price: '85.00',
+            id: 'specimen-a',
+            name_de: 'Exemplar A',
+            name_en: 'Specimen A',
+            price: '15.00', // 价格
             images: [
-              'https://images.unsplash.com/photo-1600411833196-7c1f6b1a8b90?auto=format&fit=crop&w=800&q=80',
-              'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80'
+              'images/carlaxdress.jpg' // 新图片的名称
             ]
           }
         ]
