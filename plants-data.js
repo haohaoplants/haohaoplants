@@ -14,7 +14,7 @@ const plants = [
         name_de: "Grower's Choice",
         name_en: "Grower's Choice",
         price: "10.00",
-        images: ["images/vitta-a.jpg"]
+        images: ['images/vitta-a.jpg']
       }
     ]
   },
