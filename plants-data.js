@@ -5,9 +5,7 @@ const plants = [
     name: 'Anthurium vittarifolium 4 in 1',
     desc_de: 'Eigenregie gezogene Sämlinge. Das Hauptbild zeigt die Mutterpflanze.',
     desc_en: 'Self-grown seedlings. Main photo shows the mother plant.',
-    cover_images: [
-      'images/vitta.jpg'
-    ],
+    cover_images: ['images/vitta.jpg'],
     variants: [
       {
         id: "growers-choice",
