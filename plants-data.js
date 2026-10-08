@@ -14,9 +14,9 @@ const plants = [
     // 🪴 出售个体选项（点击后主图和价格自动更新）
     variants: [
       {
-        id: 'Grower's Choice',
-        name_de: 'Grower's Choice',
-        name_en: 'Grower's Choice',
+        id: "Grower's Choice",
+        name_de: "Grower's Choice",
+        name_en: "Grower's Choice",
         price: '10.00',
         images: ['images/vitta-a.jpg']
       }
