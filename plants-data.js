@@ -21,8 +21,7 @@ const plants = [
         images: ['images/vitta-a.jpg']
       }
     ]
-  }
-];,
+  },
       {
         id: 'HP-ANT-02', // 序号改一下，比如 02
         category: 'anthurium',
