@@ -18,25 +18,21 @@ const plants = [
       }
     ]
   },
-  {
-    id: 'HP-ANT-02',
-    category: 'anthurium',
-    name: 'Carlablackiae x Dressleri',
-    desc_de: 'Eigenregie gezogene Sämlinge',
-    desc_en: 'Self-grown seedlings',
-    cover_images: [
-      'images/carlaxdress.jpg'
-    ],
-    variants: [
-      {
-        id: 'specimen-a',
-        name_de: 'Exemplar A',
-        name_en: 'Specimen A',
-        price: '15.00',
-        images: [
-          'images/carlaxdress.jpg'
-        ]
-      }
-    ]
-  }
+ {
+  id: 'HP-ANT-02',
+  category: 'anthurium',
+  name: 'Carlablackiae x Dressleri',
+  desc_de: 'Eigenregie gezogene Sämlinge.',
+  desc_en: 'Self-grown seedlings.',
+  // 👈 这里直接不写 cover_images，系统会自动用下面的 carlaxdress.jpg
+  variants: [
+    {
+      id: 'specimen-a',
+      name_de: 'Exemplar A',
+      name_en: 'Specimen A',
+      price: '15.00',
+      images: ['images/carlaxdress.jpg']
+    }
+  ]
+}
 ];
