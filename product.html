@@ -151,7 +151,7 @@
     </div>
   </div>
 
-  <script>
+<script>
     let currentLang = 'de';
     let selectedPlant = null;
     let selectedVariant = null;
@@ -186,7 +186,13 @@
       const plantId = urlParams.get('id') || 'HP-ANT-01';
       selectedPlant = plants.find(p => p.id === plantId) || plants[0];
       selectedVariant = selectedPlant.variants[0];
-      updateUI();
+      
+      // 默认主图优先显示母本展示图 cover_images[0]，如果没有才取第一株售卖个体的图
+      const initialMainImg = (selectedPlant.cover_images && selectedPlant.cover_images.length > 0) 
+        ? selectedPlant.cover_images[0] 
+        : selectedVariant.images[0];
+        
+      updateUI(initialMainImg);
     }
 
     function setLanguage(lang) {
@@ -204,26 +210,43 @@
 
     function selectVariant(idx) {
       selectedVariant = selectedPlant.variants[idx];
-      updateUI();
+      // 点击选中具体的个体时，将主图切换为该个体的图片
+      const variantImg = selectedVariant.images[0];
+      updateUI(variantImg);
     }
 
-    function updateUI() {
+    function updateUI(customMainImg = null) {
       if (!selectedPlant || !selectedVariant) return;
 
       document.getElementById('detail-title').textContent = selectedPlant.name;
-      document.getElementById('detail-subtitle').textContent = `ID: ${selectedPlant.id}`;
+      
+      // 隐藏 ID 显示（留空即可）
+      document.getElementById('detail-subtitle').textContent = ''; 
+      
       document.getElementById('detail-desc').textContent = currentLang === 'de' ? selectedPlant.desc_de : selectedPlant.desc_en;
       document.getElementById('detail-price').textContent = `€ ${selectedVariant.price}`;
 
-      document.getElementById('detail-main-img').src = selectedVariant.images[0];
+      // 设置当前主图
+      const mainImgSrc = customMainImg || selectedVariant.images[0];
+      document.getElementById('detail-main-img').src = mainImgSrc;
 
+      // 缩略图集合：合并母本展示图 + 当前选中的个体图
+      let allGalleryImages = [];
+      if (selectedPlant.cover_images && selectedPlant.cover_images.length > 0) {
+        allGalleryImages = [...selectedPlant.cover_images, ...selectedVariant.images];
+      } else {
+        allGalleryImages = selectedVariant.images;
+      }
+
+      // 渲染底部缩略图
       const thumbContainer = document.getElementById('detail-thumbnails');
-      thumbContainer.innerHTML = selectedVariant.images.map(imgUrl => `
+      thumbContainer.innerHTML = allGalleryImages.map(imgUrl => `
         <button onclick="document.getElementById('detail-main-img').src='${imgUrl}'" class="h-20 rounded-xl overflow-hidden border-2 border-sand-200 hover:border-brand-600 focus:border-brand-600 transition">
           <img src="${imgUrl}" class="w-full h-full object-cover">
         </button>
       `).join('');
 
+      // 渲染株型选择列表
       const variantContainer = document.getElementById('detail-variants');
       variantContainer.innerHTML = selectedPlant.variants.map((v, idx) => {
         const vName = currentLang === 'de' ? v.name_de : v.name_en;
@@ -241,6 +264,7 @@
         `;
       }).join('');
 
+      // 设置 WhatsApp 咨询按钮链接
       const variantName = currentLang === 'de' ? selectedVariant.name_de : selectedVariant.name_en;
       const waText = encodeURIComponent(`${translations[currentLang]['wa-msg']} ${selectedPlant.name} - ${variantName} (€${selectedVariant.price})`);
       document.getElementById('detail-wa-btn').href = `https://wa.me/4917656732766?text=${waText}`;
